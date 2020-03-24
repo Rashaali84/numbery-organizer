@@ -3,22 +3,8 @@ const object = {
   NaNyStrings: [],
   isNumberyString: function (param) {
 
-    var n = [true, null, undefined, 0].includes(param);
-    if (n) {
-      this.NaNyStrings.push(param);
-      return false;
-    }
-    else if (['hi!', 'roadwork', ':', '1.0.0', 'Number'].includes(param)) {
-      this.NaNyStrings.push(param);
-      return false;
-    } else if (['100', '', '1e5', '-0', 'Infinity'].includes(param)) {
-      this.numberyStrings.push(param);
-      return true;
-    }
-    else if (typeof (param) === 'function' || typeof (param) === 'object') {
-      this.NaNyStrings.push(param);
-      return false;
-    }
+    //check if the number is a string 
+    return (typeof param !== 'string') ? false : (isNaN(param) ? false : true);
   },
   addString: function (param) {
 
